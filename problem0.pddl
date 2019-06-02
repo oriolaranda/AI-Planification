@@ -11,7 +11,7 @@
   (:init
 
    ;; Type declarations:
-   (= (ability p1) 2)
+   (= (ability p1) 1)
    (= (ability p2) 2)
    (= (quality p1) 1)
    (= (quality p2) 2)
@@ -23,5 +23,5 @@
    (= (duration t2) 2)
 	)
   ;; The goal is all tasks assign:
-  (:goal (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))))
+  (:goal (forall (?t - task) (taskAssigned ?t)))
 )

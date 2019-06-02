@@ -21,7 +21,16 @@
 
    (= (duration t1) 1)
    (= (duration t2) 2)
+
+	 (= (totalHours) 0)
+
 	)
   ;; The goal is all tasks assign:
   (:goal (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))))
+
+	(:metric minimize
+		(totalHours))
+
+
+
 )
