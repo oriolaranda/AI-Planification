@@ -31,18 +31,15 @@ def generarProblema():
     (:init
         ;;Ability programmer
         """+inits("ability",nProgs,"p")+"""
-
         ;;Quality programmer
         """+inits("quality",nProgs,"p")+"""
-
         ;;Complexity tasks
         """+inits("complexity",nTasks,"t")+"""
-
         ;;Duration tasks
         """+inits("duration",nTasks,"t")+"""
     )
     ;; The goal is all tasks assign:
-    (:goal (forall (?t - task) (taskAsssigned ?t)))
+    (:goal (forall (?t - task) (taskAssigned ?t)))
 )"""
     return text
 
@@ -62,4 +59,4 @@ def inits(opcio,n,c):
 text = generarProblema()
 #print(text)
 print("OK!")
-writeFile("out.txt",text=text)
+writeFile("out.pddl",text=text)
