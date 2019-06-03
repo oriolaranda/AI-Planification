@@ -37,9 +37,10 @@
 
 		;;WorkingProgrammers
 		(= (workingProgrammers) 0)
-
     )
+    
     ;; The goal is:
-    (:goal (and (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))) (forall (?p - programmer) (<= (numTareas ?p) 2))) )
-	(:metric (and (minimize (totalHours)) (maximize (+ (* 1 (workingProgrammers)) (* 1 (totalHours))))))
+    (:goal (and (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))) (forall (?p - programmer) (<= (numTasks ?p) 2))) )
+    
+	(:metric maximize (+ (* 10 (workingProgrammers)) (* 1 (totalHours))))
 )
