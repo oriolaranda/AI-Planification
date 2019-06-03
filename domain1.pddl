@@ -29,7 +29,7 @@
 	(:action assignTask
 		:parameters (?p - programmer ?t - task)
 		:precondition (and (not (taskAssigned ?t)) (>= (ability ?p) (- (complexity ?t) 1)) )
-		:effect (and (taskAssigned ?t) (programmerDoesTask ?p ?t) (assign (reviewDuration ?t) (ability ?p)) (when (< (ability ?p) (complexity ?t)) (increase (duration ?t) 2)) )
+		:effect (and (taskAssigned ?t) (programmerDoesTask ?p ?t) (assign (reviewDuration ?t) (quality ?p)) (when (< (ability ?p) (complexity ?t)) (increase (duration ?t) 2)) )
 	)
 
 	(:action assignReviewTask
