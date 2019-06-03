@@ -1,0 +1,30 @@
+
+(define (problem E1b)
+    (:domain tasking)
+    (:objects
+        p1 p2 p3 - programmer
+        t1 t2 - task
+    )
+    (:init
+        ;;Ability programmer
+	(= (ability p1) 2)
+	(= (ability p2) 1)
+	(= (ability p3) 1)
+
+        ;;Quality programmer
+	(= (quality p1) 4)
+	(= (quality p2) 2)
+	(= (quality p3) 3)
+
+        ;;Complexity tasks
+	(= (complexity t1) 3)
+	(= (complexity t2) 3)
+
+        ;;Duration tasks
+	(= (duration t1) 1)
+	(= (duration t2) 2)
+
+    )
+    ;; The goal is:
+    (:goal (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))))
+)
