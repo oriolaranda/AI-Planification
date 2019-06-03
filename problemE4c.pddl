@@ -1,46 +1,42 @@
 
-(define (problem E4a)
+(define (problem E4c)
     (:domain tasking)
     (:objects
-        p1 p2 p3 p4 p5 p6 p7 p8 - programmer
-        t1 t2 t3 t4 t5 t6 - task
+        p1 p2 p3 p4 p5 p6 p7 - programmer
+        t1 t2 t3 t4 t5 - task
     )
     (:init
         ;;Ability programmer
-		(= (ability p1) 3)
-		(= (ability p2) 8)
-		(= (ability p3) 2)
-		(= (ability p4) 9)
-		(= (ability p5) 6)
-		(= (ability p6) 1)
-		(= (ability p7) 7)
-		(= (ability p8) 7)
+		(= (ability p1) 8)
+		(= (ability p2) 4)
+		(= (ability p3) 5)
+		(= (ability p4) 6)
+		(= (ability p5) 1)
+		(= (ability p6) 5)
+		(= (ability p7) 1)
 
         ;;Quality programmer
-		(= (quality p1) 7)
-		(= (quality p2) 4)
-		(= (quality p3) 5)
-		(= (quality p4) 7)
-		(= (quality p5) 9)
-		(= (quality p6) 7)
-		(= (quality p7) 9)
-		(= (quality p8) 1)
+		(= (quality p1) 2)
+		(= (quality p2) 8)
+		(= (quality p3) 1)
+		(= (quality p4) 5)
+		(= (quality p5) 1)
+		(= (quality p6) 5)
+		(= (quality p7) 2)
 
         ;;Complexity tasks
-		(= (complexity t1) 6)
+		(= (complexity t1) 4)
 		(= (complexity t2) 3)
-		(= (complexity t3) 7)
-		(= (complexity t4) 7)
-		(= (complexity t5) 5)
-		(= (complexity t6) 4)
+		(= (complexity t3) 4)
+		(= (complexity t4) 2)
+		(= (complexity t5) 3)
 
         ;;Duration tasks
-		(= (duration t1) 3)
+		(= (duration t1) 4)
 		(= (duration t2) 3)
-		(= (duration t3) 2)
-		(= (duration t4) 5)
-		(= (duration t5) 4)
-		(= (duration t6) 2)
+		(= (duration t3) 6)
+		(= (duration t4) 4)
+		(= (duration t5) 5)
 
 		;;TotalHours
 		(= (totalHours) 0)
@@ -53,7 +49,6 @@
 		(= (numTasks p5) 0)
 		(= (numTasks p6) 0)
 		(= (numTasks p7) 0)
-		(= (numTasks p8) 0)
 
 		;;WorkingProgrammers
 		(= (workingProgrammers) 0)

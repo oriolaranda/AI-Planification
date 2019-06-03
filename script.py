@@ -16,11 +16,11 @@ def writeFile(nameFile, op="w", text="Error!"):
 def opcional(nProb, nProgs):
     text = ""
     if nProb >= 2:
-        text += "\t;;TotalHours\n\t(= (totalHours) 0)\n\n"
+        text += "\t\t;;TotalHours\n\t\t(= (totalHours) 0)\n\n"
     if nProb >= 3:
-        text += "\t;;NumTasks programmer\n"+inits("numTasks",nProgs,"p",0)+"\n"
+        text += "\t\t;;NumTasks programmer\n"+inits("numTasks",nProgs,"p",0)+"\n"
     if nProb >= 4:
-        text += "\t;;WorkingProgrammers\n\t(= (workingProgrammers) 0)\n\n"
+        text += "\t\t;;WorkingProgrammers\n\t\t(= (workingProgrammers) 0)\n\n"
     return text
 
 
@@ -35,8 +35,8 @@ def goal(nProb):
         text = """(:goal (and (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))) (forall (?p - programmer) (<= (numTasks ?p) 2))) )
     (:metric minimize(totalHours))"""
     elif nProb == 4:
-        text = """(:goal (and (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))) (forall (?p - programmer) (<= (numTareas ?p) 2))) )
-	(:metric (and (minimize (totalHours)) (maximize (+ (* 1 (workingProgrammers)) (* 1 (totalHours))))))"""
+        text = """(:goal (and (forall (?t - task) (and (taskReviewAssigned ?t)(taskAssigned ?t))) (forall (?p - programmer) (<= (numTasks ?p) 2))) )
+    (:metric maximize (+ (* 10 (workingProgrammers)) (* 1 (totalHours))))"""
 
 
     return text
@@ -85,7 +85,7 @@ def inits(opcio,n,c,num=1):
     text = ""
     for i in range(n):
         if num != 0: num = myRand(n)
-        text +="\t(= ("+opcio+" "+c+str(i+1)+") "+str(num)+")\n"
+        text +="\t\t(= ("+opcio+" "+c+str(i+1)+") "+str(num)+")\n"
     return text
 
 
@@ -93,8 +93,7 @@ def generar():
     while True:
         try:
             nProb = int(input("\nLevel domain: "))
-            nProgs = int(input("\nNum Programmers: "))
-            nTasks = int(input("\nNum Tasks: "))
+
             break
         except ValueError:
             print("Error Value!")
@@ -105,6 +104,8 @@ def generar():
             nomProb = "E"+str(nProb)
         nomProb += i
         name = "problem"+nomProb+".pddl"
+        nProgs = int(input("\nNum Programmers: "))
+        nTasks = int(input("\nNum Tasks: "))
         text = generarProblema(nProb,nomProb,nProgs,nTasks)
         writeFile(name,text=text)
         #print(text)
